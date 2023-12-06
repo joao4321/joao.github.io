@@ -1,20 +1,14 @@
-function horarioAtual() {
-    let horario = new Date().toLocaleTimeString();
-    document.getElementById("hora").innerHTML = horario;
-    setTimeout(horarioAtual, 1000);
+// Função para incrementar o contador
+function incrementarContador() {
+    // Obtém o elemento do contador
+    var contadorElemento = document.getElementById('contador');
+
+    // Obtém o valor atual do contador
+    var contadorAtual = parseInt(contadorElemento.innerText);
+
+    // Incrementa o contador
+    contadorAtual++;
+
+    // Atualiza o texto do contador
+    contadorElemento.innerText = contadorAtual;
 }
-
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-
-const alert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
-
-  alertPlaceholder.append(wrapper)
-}
-
