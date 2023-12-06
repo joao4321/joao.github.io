@@ -1,11 +1,4 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,12 +9,13 @@
             font-family: 'Arial', sans-serif;
             text-align: center;
             margin: 50px;
-            background-color: #f0f0f0;
+            overflow: hidden;
         }
 
         #letreiro {
             white-space: nowrap;
-            overflow: hidden;
+            position: relative;
+            animation: moverLetreiro 10s linear infinite;
         }
 
         .mensagem {
@@ -29,35 +23,26 @@
             padding: 0 20px;
             display: inline-block;
         }
+
+        @keyframes moverLetreiro {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
     </style>
 </head>
 <body>
 
-    <div id="letreiro"></div>
+    <div id="letreiro">
+        <div class="mensagem">Eu</div>
+        <div class="mensagem">Amo</div>
+        <div class="mensagem">Fatec</div>
+    </div>
 
     <script src="letreiro.js"></script>
 
 </body>
-</html>
-
-    <title>Relógio</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css"
-    integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous">
-    
-</head>
-
-<body class="" onload="horarioAtual()">
-    
-    <div class="container col-2 ">
-        
-        
-        <h1 id="hora"></h1>
-
-        
-        
-    </div>
-    <script type="text/javascript" src="JavaScript.js"></script>
-</body>
-
 </html>
