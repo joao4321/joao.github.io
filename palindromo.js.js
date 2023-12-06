@@ -1,21 +1,14 @@
-var palavra = document.getElementById("verificar");
-palavra.addEventListener("click", ePalindromo, false);
+// Função para incrementar o contador
+function incrementarContador() {
+    // Obtém o elemento do contador
+    var contadorElemento = document.getElementById('contador');
 
-function ePalindromo() {
-    let texto = document.getElementById('texto').value;
-    let textoSemEspaco = texto.replace(" ", "").toLowerCase();
-    let textInvertido = inverter(textoSemEspaco);
+    // Obtém o valor atual do contador
+    var contadorAtual = parseInt(contadorElemento.innerText);
 
-    if (textoSemEspaco == textInvertido)
-        alert(texto + " é um palíndromo!") 
-    else
-        alert(texto + " não é um palíndromo") 
-}
+    // Incrementa o contador
+    contadorAtual++;
 
-function inverter(str) {
-    var newString = "";
-    for (var i = str.length - 1; i >= 0; i--) { 
-        newString += str[i];
-    }
-    return newString;
+    // Atualiza o texto do contador
+    contadorElemento.innerText = contadorAtual;
 }
