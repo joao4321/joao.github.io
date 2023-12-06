@@ -1,22 +1,29 @@
-// Dia da semana
-const days = ["Domingo","Segunda-Feira","Terça-Feira","Quarta-Feira","Quinta-Feira","Sexta-Feira","Sábado"];
+function atualizarMostrador() {
+    var mostrador = document.getElementById('mostrador');
+    
+    var dataHoraAtual = new Date();
+    var dataHoraFormatada = formatarDataHora(dataHoraAtual);
+    
+    mostrador.innerText = dataHoraFormatada;
+}
 
-const d_s = new Date();
-let day = days[d_s.getDay()];
-document.getElementById("dia_se").innerHTML = day;
+function formatarDataHora(dataHora) {
+    var dia = adicionarZero(dataHora.getDate());
+    var mes = adicionarZero(dataHora.getMonth() + 1);
+    var ano = dataHora.getFullYear();
+    var horas = adicionarZero(dataHora.getHours());
+    var minutos = adicionarZero(dataHora.getMinutes());
+    var segundos = adicionarZero(dataHora.getSeconds());
+    
+    return `${dia}/${mes}/${ano} ${horas}:${minutos}:${segundos}`;
+}
 
-// Dia
-const dia = new Date();
-document.getElementById("dia").innerHTML = dia.getDate();
+function adicionarZero(numero) {
+    return numero < 10 ? '0' + numero : numero;
+}
 
-// Mês
-const months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+// Atualizar o mostrador a cada segundo
+setInterval(atualizarMostrador, 1000);
 
-const d = new Date();
-let mes = months[d.getMonth()];
-document.getElementById("mes").innerHTML = mes;
-
-
-// Ano
-const ano = new Date();
-document.getElementById("ano").innerHTML = ano.getFullYear();
+// Atualizar o mostrador imediatamente ao carregar a página
+window.onload = atualizarMostrador;
