@@ -1,27 +1,30 @@
-let elementos = [];
-let btnAdicionar = document.getElementById("btnAdicionar");
+var display = document.getElementById('display');
+var expressao = '';
 
-btnAdicionar.addEventListener("click", function () {
+function adicionarCaractere(caractere) {
+    expressao += caractere;
+    atualizarDisplay();
+}
 
-    let valor = document.getElementById("valores").value;
-    elementos.push(valor.toString());
+function limparDisplay() {
+    expressao = '';
+    atualizarDisplay();
+}
 
-    let oldOL = document.getElementById("list");
-    if (oldOL !== null)
-   { document.body.removeChild(oldOL); }
+function apagarUltimo() {
+    expressao = expressao.slice(0, -1);
+    atualizarDisplay();
+}
 
-    elementos.sort();
+function calcularResultado() {
+    try {
+        expressao = eval(expressao).toString();
+    } catch (error) {
+        expressao = 'Erro';
+    }
+    atualizarDisplay();
+}
 
-    let elementoOL = document.createElement("OL");
-    elementoOL.setAttribute("id", "list");
-    elementos.forEach(element => {
-        let elementoLI = document.createElement("LI");
-        let elementBR = document.createElement("BR");
-        let textNode = document.createTextNode(element);
-        elementoLI.appendChild(textNode);
-        elementoOL.appendChild(textNode);
-        elementoOL.appendChild(elementBR);
-    });
-
-    document.body.appendChild(elementoOL);
-});
+function atualizarDisplay() {
+    display.innerText = expressao;
+}
