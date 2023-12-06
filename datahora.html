@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Relógio</title>
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.rtl.min.css"
-    integrity="sha384-+4j30LffJ4tgIMrq9CwHvn0NjEvmuDCOfk6Rpg2xg7zgOxWWtLtozDEEVvBPgHqE" crossorigin="anonymous">
-    
+    <title>Contador de Pessoas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #contador {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        #botaoIncrementar {
+            font-size: 1em;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
+<body>
 
-<body class="" onload="horarioAtual()">
-    
-    <div class="container col-2 ">
-        
-        
-        <h1 id="hora"></h1>
+    <h1>Contador de Pessoas</h1>
 
-        
-        
-    </div>
-    <script type="text/javascript" src="JavaScript.js"></script>
+    <div id="contador">0</div>
+
+    <button id="botaoIncrementar" onclick="incrementarContador()">Incrementar</button>
+
+    <script src="contador.js"></script>
+
 </body>
-
 </html>
