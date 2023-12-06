@@ -1,21 +1,20 @@
-function atualizarRelogio() {
-    var relogio = document.getElementById('relogio');
-    
-    var dataHoraAtual = new Date();
-    var horas = adicionarZero(dataHoraAtual.getHours());
-    var minutos = adicionarZero(dataHoraAtual.getMinutes());
-    var segundos = adicionarZero(dataHoraAtual.getSeconds());
-    
-    relogio.innerText = `${horas}:${minutos}:${segundos}`;
+function horarioAtual() {
+    let horario = new Date().toLocaleTimeString();
+    document.getElementById("hora").innerHTML = horario;
+    setTimeout(horarioAtual, 1000);
 }
 
-function adicionarZero(numero) {
-    return numero < 10 ? '0' + numero : numero;
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+
+const alert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
+
+  alertPlaceholder.append(wrapper)
 }
 
-// Atualizar o relógio imediatamente ao carregar a página
-window.onload = function() {
-    atualizarRelogio();
-    // Atualizar o relógio a cada segundo
-    setInterval(atualizarRelogio, 1000);
-};
