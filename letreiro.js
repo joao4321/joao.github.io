@@ -1,23 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     const letreiro = document.getElementById('letreiro');
-    const mensagens = ['Eu', 'Amo', 'Fatec'];
+    
+    // Adiciona o evento 'animationiteration' para reiniciar a animação quando ela termina
+    letreiro.addEventListener('animationiteration', reiniciarAnimacao);
 
-    // Função para criar elementos de mensagem
-    function criarMensagens() {
-        for (const mensagem of mensagens) {
-            const elementoMensagem = document.createElement('div');
-            elementoMensagem.classList.add('mensagem');
-            elementoMensagem.textContent = mensagem;
-            letreiro.appendChild(elementoMensagem);
-        }
-    }
-
-    // Função para mover o letreiro
-    function moverLetreiro() {
+    // Função para reiniciar a animação
+    function reiniciarAnimacao() {
+        letreiro.style.animation = 'none';
+        void letreiro.offsetWidth;  // Força uma re-renderização
         letreiro.style.animation = 'moverLetreiro 10s linear infinite';
     }
-
-    // Chamar as funções para criar as mensagens e mover o letreiro
-    criarMensagens();
-    moverLetreiro();
 });
