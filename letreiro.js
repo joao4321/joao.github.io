@@ -1,20 +1,23 @@
-function horarioAtual() {
-    let horario = new Date().toLocaleTimeString();
-    document.getElementById("hora").innerHTML = horario;
-    setTimeout(horarioAtual, 1000);
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const letreiro = document.getElementById('letreiro');
+    const mensagens = ['Eu', 'Amo', 'Fatec'];
 
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
+    // Função para criar elementos de mensagem
+    function criarMensagens() {
+        for (const mensagem of mensagens) {
+            const elementoMensagem = document.createElement('div');
+            elementoMensagem.classList.add('mensagem');
+            elementoMensagem.textContent = mensagem;
+            letreiro.appendChild(elementoMensagem);
+        }
+    }
 
-const alert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
+    // Função para mover o letreiro
+    function moverLetreiro() {
+        letreiro.style.animation = 'moverLetreiro 10s linear infinite';
+    }
 
-  alertPlaceholder.append(wrapper)
-}
-
+    // Chamar as funções para criar as mensagens e mover o letreiro
+    criarMensagens();
+    moverLetreiro();
+});
