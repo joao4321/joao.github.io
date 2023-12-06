@@ -2,21 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="./style.css">
-    <script type="text/javascript" src="palindromo.js" async></script>
-
-    <title>Palindromo </title>
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #display {
+            width: 200px;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body>    
-    <form>
-        <h1 id="titulo">Palíndromo</h1>
-		<h3>Um palindromo é uma palavra que se mantem a mesma de tras para frente.</h3>
-        <input type="text" placeholder="Texto" id="texto" name="texto"></input>
-        <button type="submit" id="verificar">Verificar</button>
-    </form>
- 
+<body>
+
+    <h1>Calculadora</h1>
+
+    <div id="display">0</div>
+
+    <button onclick="limparDisplay()">C</button>
+    <button onclick="apagarUltimo()">←</button>
+    <button onclick="adicionarCaractere('/')">/</button>
+    <br>
+    <button onclick="adicionarCaractere('7')">7</button>
+    <button onclick="adicionarCaractere('8')">8</button>
+    <button onclick="adicionarCaractere('9')">9</button>
+    <button onclick="adicionarCaractere('*')">*</button>
+    <br>
+    <button onclick="adicionarCaractere('4')">4</button>
+    <button onclick="adicionarCaractere('5')">5</button>
+    <button onclick="adicionarCaractere('6')">6</button>
+    <button onclick="adicionarCaractere('-')">-</button>
+    <br>
+    <button onclick="adicionarCaractere('1')">1</button>
+    <button onclick="adicionarCaractere('2')">2</button>
+    <button onclick="adicionarCaractere('3')">3</button>
+    <button onclick="adicionarCaractere('+')">+</button>
+    <br>
+    <button onclick="adicionarCaractere('0')">0</button>
+    <button onclick="adicionarCaractere('.')">.</button>
+    <button onclick="calcularResultado()">=</button>
+
+    <script src="calculadora.js"></script>
+
 </body>
 </html>
